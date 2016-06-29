@@ -20,7 +20,23 @@ let f = { (x:Int) -> Int in
     return x + 42
 }
 
-/*: 
+/*:
+ ## Kwan: Parts of a closure
+ 
+ > 1. closure body { }
+ > 2. input parameters {(x:Int)}
+ > 3. return value {(x:Int) -> Int}
+ > 4. define body of the closure {(x:Int) -> Int in }
+ > 5. return from {(x:Int) -> Int in return x + 42}
+ */
+
+let closure = {(x:Int) -> Int in
+    return x + 42
+}
+closure(27931)
+
+
+/*:
 Closures have types too! Look at the *results sidebar* on the right side, and you'll
 see that the type of the closure above is ```Int -> Int```: it takes an ```Int``` and returns an ```Int```.
 
@@ -42,11 +58,12 @@ What happens? Why?
 */
 
 /*:
-Now let's try something fancier! Let's put a bunch of closures inside an array
-*/
+ ## Kwan: Closures inside an array
+ > 1. type of the array [Int->Int] holds the type of the closure
+ */
 
 let closures = [
-    f,                                  // our previous closure
+    f,                                  // our previous closure, define the type of the array
     {(x:Int) -> Int in return x * 2},   // a new Int -> Int closure
     {x in return x - 8},                // no need for the type of the closure!
     {x in x * x},                       // no need for return if only one line
